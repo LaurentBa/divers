@@ -1,0 +1,28 @@
+#!/bin/bash - 
+#===============================================================================
+#
+#          FILE: git_pull (local part)
+# 
+#         USAGE: ./git_pull (local part)
+# 
+#   DESCRIPTION: fichier locale pour lancer le script sur le serveur distant 
+# 
+#       OPTIONS: Prend en argument le nom du site pour l'option -s de git_pull.sh
+#  REQUIREMENTS: git_pull.sh ssh git
+#          BUGS: ---
+#         NOTES: ---
+#        AUTHOR: BARATTERO Laurent 
+#  ORGANIZATION: 
+#       CREATED: 29/05/2013 01:38:31 CEST
+#      REVISION: 0.0-
+#===============================================================================
+
+
+# l'option -s est obligatoire
+if [[ -z "$1" ]]; then
+    echo "la cible (site) n'est pas defini."
+    echo "L'argument est obligatoire"
+    exit 1
+fi
+
+ssh user@host "sh ~/script/git_pull.sh -s $1"
